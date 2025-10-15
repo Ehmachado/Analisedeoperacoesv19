@@ -70,25 +70,26 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.975rem 1.95rem;
-  font-size: 1.3rem;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  border-radius: 14px;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .action-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
 .export-button {
-  background: linear-gradient(135deg, #003399 0%, #2a56c6 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 .export-button:hover {
-  background: linear-gradient(135deg, #002266 0%, #1a4696 100%);
+  background: linear-gradient(135deg, #5568d3 0%, #6a4193 100%);
 }
 
 .button-icon {
