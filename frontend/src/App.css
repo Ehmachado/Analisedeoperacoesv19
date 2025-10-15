@@ -199,18 +199,17 @@ body {
 }
 
 .field-label {
-  font-size: 1.31rem;
+  font-size: 0.708rem;
   font-weight: 700;
   color: #1a202c;
   letter-spacing: 0.3px;
   margin-bottom: 0.3rem;
   text-transform: uppercase;
-  font-size: 1.0115rem;
 }
 
 .field-input {
-  font-size: 1.428rem;
-  padding: 1.19rem;
+  font-size: 1rem;
+  padding: 0.833rem;
   border-radius: 16px;
   border: 2px solid rgba(226, 232, 240, 0.6);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -219,10 +218,12 @@ body {
   color: #1a202c;
   font-weight: 500;
   word-wrap: break-word;
+  word-break: break-word;
   overflow-wrap: break-word;
-  white-space: normal;
-  min-height: 60px;
+  white-space: pre-wrap;
+  min-height: 50px;
   resize: vertical;
+  overflow: visible;
 }
 
 .field-textarea {
@@ -230,6 +231,9 @@ body {
   line-height: 1.5;
   resize: vertical;
   overflow-y: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .field-input:focus {
@@ -241,14 +245,14 @@ body {
 }
 
 .print-value {
-  font-size: 1.428rem;
+  font-size: 1rem;
   font-weight: 500;
   color: #1a202c;
-  padding: 1.19rem;
+  padding: 0.833rem;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 16px;
   border: 2px solid rgba(226, 232, 240, 0.6);
-  min-height: 65px;
+  min-height: 50px;
   display: flex;
   align-items: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
