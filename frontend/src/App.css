@@ -233,17 +233,17 @@ body {
 }
 
 .field-label {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #1a202c;
   letter-spacing: 0.3px;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.4rem;
   text-transform: uppercase;
 }
 
 .field-input {
-  font-size: 1.25rem;
-  padding: 0.9rem;
+  font-size: 1.4rem;
+  padding: 1rem;
   border-radius: 12px;
   border: 2px solid rgba(226, 232, 240, 0.6);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -255,7 +255,7 @@ body {
   word-break: break-word;
   overflow-wrap: break-word;
   white-space: pre-wrap;
-  min-height: 50px;
+  min-height: 55px;
   resize: vertical;
   overflow: visible;
 }
