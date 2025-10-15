@@ -28,8 +28,8 @@ body {
 
 .app-header {
   background: linear-gradient(135deg, #003399 0%, #0047b3 50%, #2a56c6 100%);
-  padding: 0.5rem 1rem 0.4rem;
-  box-shadow: 0 2px 12px rgba(0, 51, 153, 0.3);
+  padding: 0.3rem 0.8rem 0.25rem;
+  box-shadow: 0 2px 8px rgba(0, 51, 153, 0.3);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -38,22 +38,22 @@ body {
 
 .header-content {
   text-align: center;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
 }
 
 .app-title {
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   font-weight: 800;
   background: linear-gradient(135deg, #ffcc00 0%, #ffe680 50%, #ffffff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  letter-spacing: 0.5px;
-  margin-bottom: 0.1rem;
+  letter-spacing: 0.3px;
+  margin-bottom: 0.05rem;
 }
 
 .app-subtitle {
-  font-size: 0.65rem;
+  font-size: 0.5rem;
   color: #ffe680;
   font-weight: 500;
 }
