@@ -199,18 +199,18 @@ body {
 }
 
 .field-label {
-  font-size: 0.708rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: #1a202c;
   letter-spacing: 0.3px;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
   text-transform: uppercase;
 }
 
 .field-input {
-  font-size: 1rem;
-  padding: 0.833rem;
-  border-radius: 16px;
+  font-size: 0.9rem;
+  padding: 0.65rem;
+  border-radius: 12px;
   border: 2px solid rgba(226, 232, 240, 0.6);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   background: rgba(255, 255, 255, 0.9);
@@ -221,14 +221,14 @@ body {
   word-break: break-word;
   overflow-wrap: break-word;
   white-space: pre-wrap;
-  min-height: 50px;
+  min-height: 40px;
   resize: vertical;
   overflow: visible;
 }
 
 .field-textarea {
   font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  line-height: 1.5;
+  line-height: 1.4;
   resize: vertical;
   overflow-y: auto;
   white-space: pre-wrap;
@@ -245,14 +245,14 @@ body {
 }
 
 .print-value {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: #1a202c;
-  padding: 0.833rem;
+  padding: 0.65rem;
   background: rgba(255, 255, 255, 0.95);
-  border-radius: 16px;
+  border-radius: 12px;
   border: 2px solid rgba(226, 232, 240, 0.6);
-  min-height: 50px;
+  min-height: 40px;
   display: flex;
   align-items: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -260,6 +260,7 @@ body {
   word-break: break-word;
   overflow-wrap: break-word;
   white-space: normal;
+  line-height: 1.4;
 }
 
 .share-bb-value {
