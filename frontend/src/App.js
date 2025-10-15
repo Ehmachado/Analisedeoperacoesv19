@@ -312,8 +312,8 @@ function App() {
             id={field}
             value={value}
             onChange={(e) => handleChange(field, e.target.value)}
-            className="field-input"
-            rows={2}
+            className="field-input field-textarea"
+            rows={3}
             data-field={field}
           />
         </div>
@@ -343,13 +343,14 @@ function App() {
       return (
         <div className="field-group">
           <Label htmlFor={field} className="field-label">{label}</Label>
-          <Input
+          <Textarea
             id={field}
             value={value}
             onChange={(e) => handleCurrencyChange(field, e.target.value)}
-            className="field-input"
+            className="field-input field-textarea"
             placeholder="R$ 0,00"
             data-field={field}
+            rows={1}
           />
         </div>
       );
@@ -374,13 +375,14 @@ function App() {
     return (
       <div className="field-group">
         <Label htmlFor={field} className="field-label">{label}</Label>
-        <Input
+        <Textarea
           id={field}
           value={value}
           onChange={(e) => handleChange(field, e.target.value)}
-          className="field-input"
+          className="field-input field-textarea"
           placeholder={label}
           data-field={field}
+          rows={1}
         />
       </div>
     );
