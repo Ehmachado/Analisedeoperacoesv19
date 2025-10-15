@@ -134,54 +134,94 @@ function App() {
     const exportContainer = document.getElementById('export-container');
     if (!exportContainer) return;
 
-    // Add export class for styling
-    exportContainer.classList.add('export-mode');
-    
-    // Wait for fonts and styles to load
-    await document.fonts.ready;
-    
     try {
-      // Wait a bit for rendering
+      // Create a clone for export
+      const clone = exportContainer.cloneNode(true);
+      clone.style.position = 'absolute';
+      clone.style.left = '-9999px';
+      clone.style.top = '0';
+      clone.style.width = '1800px';
+      clone.style.background = '#ffffff';
+      clone.style.padding = '20px';
+      
+      document.body.appendChild(clone);
+      
+      // Replace all inputs with their values as text
+      const allInputs = clone.querySelectorAll('input[type="text"], input[type="date"], textarea');
+      allInputs.forEach(input => {
+        const value = input.value || '—';
+        const span = document.createElement('div');
+        span.textContent = value;
+        span.style.cssText = `
+          font-size: 1.15rem;
+          padding: 0.7rem;
+          background: white;
+          border-radius: 12px;
+          border: 2px solid #e5e7eb;
+          min-height: 50px;
+          display: flex;
+          align-items: center;
+          color: #0c1424;
+          font-weight: 500;
+        `;
+        input.parentNode.replaceChild(span, input);
+      });
+      
+      // Replace selects with their values
+      const allSelects = clone.querySelectorAll('[role="combobox"]');
+      allSelects.forEach(select => {
+        const fieldName = select.getAttribute('data-field');
+        const value = formData[fieldName] || 'Selecione...';
+        const span = document.createElement('div');
+        span.textContent = value;
+        span.style.cssText = `
+          font-size: 1.15rem;
+          padding: 0.7rem;
+          background: white;
+          border-radius: 12px;
+          border: 2px solid #e5e7eb;
+          min-height: 50px;
+          display: flex;
+          align-items: center;
+          color: #0c1424;
+          font-weight: 500;
+        `;
+        select.parentNode.replaceChild(span, select);
+      });
+      
+      // Hide buttons
+      const buttons = clone.querySelector('.header-actions');
+      if (buttons) buttons.style.display = 'none';
+      
+      // Apply export styles
+      clone.classList.add('export-mode');
+      
+      // Wait for rendering
       await new Promise(resolve => setTimeout(resolve, 500));
       
-      const canvas = await html2canvas(exportContainer, {
+      // Capture with html2canvas
+      const canvas = await html2canvas(clone, {
         scale: 2,
         backgroundColor: '#ffffff',
         logging: false,
         useCORS: true,
         allowTaint: false,
-        foreignObjectRendering: false,
-        imageTimeout: 0,
-        removeContainer: false,
-        windowWidth: exportContainer.scrollWidth,
-        windowHeight: exportContainer.scrollHeight,
-        onclone: (clonedDoc) => {
-          const clonedContainer = clonedDoc.getElementById('export-container');
-          if (clonedContainer) {
-            clonedContainer.style.background = '#ffffff';
-            clonedContainer.style.padding = '20px';
-            // Ensure all text is visible
-            const allText = clonedContainer.querySelectorAll('*');
-            allText.forEach(el => {
-              const styles = window.getComputedStyle(el);
-              el.style.fontFamily = styles.fontFamily;
-              el.style.fontSize = styles.fontSize;
-              el.style.color = styles.color;
-            });
-          }
-        }
+        windowWidth: 1800,
+        windowHeight: clone.scrollHeight
       });
-
-      // Convert and download
+      
+      // Remove clone
+      document.body.removeChild(clone);
+      
+      // Download
       const link = document.createElement('a');
       link.download = `super-barreiras-${Date.now()}.png`;
       link.href = canvas.toDataURL('image/png', 1.0);
       link.click();
+      
     } catch (error) {
       console.error('Erro ao exportar:', error);
       alert('Erro ao exportar imagem. Tente novamente.');
-    } finally {
-      exportContainer.classList.remove('export-mode');
     }
   };
 
