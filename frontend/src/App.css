@@ -258,14 +258,26 @@ body {
 }
 
 /* Responsive design */
-@media (max-width: 1400px) {
+@media (max-width: 1600px) {
   .columns-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .columns-grid-bottom {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1400px) {
+  .columns-grid,
+  .columns-grid-bottom {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 900px) {
-  .columns-grid {
+  .columns-grid,
+  .columns-grid-bottom {
     grid-template-columns: 1fr;
   }
   
