@@ -145,7 +145,7 @@ function App() {
     }
 
     try {
-      console.log('Iniciando exportação PNG em modo paisagem...');
+      console.log('Iniciando exportação PNG em modo paisagem GRANDE...');
       
       // Aguardar fontes carregarem
       await document.fonts.ready;
@@ -153,56 +153,57 @@ function App() {
       // Aguardar mais um pouco para garantir renderização
       await new Promise(resolve => setTimeout(resolve, 800));
       
-      // Configurações para MODO PAISAGEM AJUSTADO (cabe na tela)
+      // Configurações para PAISAGEM GRANDE (preenche tela)
       const canvas = await html2canvas(exportContainer, {
         scale: 2,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#0a1929',
         logging: false,
         useCORS: true,
         allowTaint: false,
         foreignObjectRendering: false,
         imageTimeout: 0,
-        windowWidth: 1920,
-        windowHeight: 1080,
+        windowWidth: 2400,
+        windowHeight: 1600,
         onclone: (clonedDoc) => {
-          console.log('Aplicando estilos no clone para paisagem...');
+          console.log('Aplicando estilos GRANDES para exportação paisagem...');
           
           const clonedContainer = clonedDoc.getElementById('export-container');
           if (clonedContainer) {
-            // Background branco e padding
-            clonedContainer.style.backgroundColor = '#ffffff';
-            clonedContainer.style.padding = '40px';
-            clonedContainer.style.minHeight = '2160px';
+            // BACKGROUND COLORIDO - Gradiente azul BB
+            clonedContainer.style.background = 'linear-gradient(135deg, #0a1929 0%, #1a3a5c 50%, #2a56c6 100%)';
+            clonedContainer.style.padding = '30px';
+            clonedContainer.style.minHeight = '1600px';
             
             // Esconder botões
             const buttons = clonedContainer.querySelector('.header-actions');
             if (buttons) buttons.style.display = 'none';
             
-            // ===== CABEÇALHO BB =====
+            // ===== CABEÇALHO BB - GRANDE =====
             const header = clonedContainer.querySelector('.app-header');
             if (header) {
               header.style.background = 'linear-gradient(135deg, #003399 0%, #0047b3 50%, #2a56c6 100%)';
-              header.style.borderBottom = '3px solid #ffcc00';
-              header.style.padding = '1.5rem 1.5rem 1rem';
-              header.style.marginBottom = '1rem';
+              header.style.borderBottom = '6px solid #ffcc00';
+              header.style.padding = '2.5rem 2rem 2rem';
+              header.style.marginBottom = '1.5rem';
+              header.style.borderRadius = '20px';
             }
             
-            // TÍTULO BB - Compacto
+            // TÍTULO BB - GRANDE
             const title = clonedContainer.querySelector('.app-title');
             if (title) {
-              title.style.fontSize = '2.5rem';
+              title.style.fontSize = '4rem';
               title.style.fontWeight = '800';
               title.style.background = 'linear-gradient(135deg, #ffcc00 0%, #ffe680 50%, #ffffff 100%)';
               title.style.webkitBackgroundClip = 'text';
               title.style.webkitTextFillColor = 'transparent';
               title.style.backgroundClip = 'text';
-              title.style.marginBottom = '0.3rem';
+              title.style.marginBottom = '0.5rem';
             }
             
-            // SUBTÍTULO
+            // SUBTÍTULO - GRANDE
             const subtitle = clonedContainer.querySelector('.app-subtitle');
             if (subtitle) {
-              subtitle.style.fontSize = '0.9rem';
+              subtitle.style.fontSize = '1.5rem';
               subtitle.style.color = '#ffe680';
               subtitle.style.fontWeight = '500';
             }
@@ -210,116 +211,121 @@ function App() {
             // MAIN CONTENT
             const mainContent = clonedContainer.querySelector('.main-content');
             if (mainContent) {
-              mainContent.style.padding = '1rem';
+              mainContent.style.padding = '1.5rem';
             }
             
-            // FIXED FIELDS
+            // FIXED FIELDS - GRANDE
             const fixedFields = clonedContainer.querySelector('.fixed-fields');
             if (fixedFields) {
               fixedFields.style.background = 'rgba(255, 255, 255, 0.95)';
-              fixedFields.style.border = '2px solid rgba(226, 232, 240, 0.8)';
-              fixedFields.style.borderRadius = '16px';
-              fixedFields.style.padding = '1rem';
-              fixedFields.style.marginBottom = '1rem';
-              fixedFields.style.gap = '0.8rem';
+              fixedFields.style.border = '3px solid rgba(226, 232, 240, 0.8)';
+              fixedFields.style.borderRadius = '20px';
+              fixedFields.style.padding = '1.8rem';
+              fixedFields.style.marginBottom = '1.5rem';
+              fixedFields.style.gap = '1.2rem';
             }
             
-            // GRID DE COLUNAS - Compacto
+            // GRID DE COLUNAS - 4 colunas grande
             const columnsGrids = clonedContainer.querySelectorAll('.columns-grid');
             columnsGrids.forEach(grid => {
               grid.style.display = 'grid';
               grid.style.gridTemplateColumns = 'repeat(4, 1fr)';
-              grid.style.gap = '0.8rem';
-              grid.style.marginBottom = '0.8rem';
+              grid.style.gap = '1.2rem';
+              grid.style.marginBottom = '1.2rem';
             });
             
-            // CARDS
+            // CARDS - GRANDE
             const cards = clonedContainer.querySelectorAll('.column-card');
             cards.forEach(card => {
-              card.style.borderRadius = '14px';
-              card.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
+              card.style.borderRadius = '18px';
+              card.style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.3)';
             });
             
             // Cores dos cards
             const yellowCards = clonedContainer.querySelectorAll('.column-yellow');
             yellowCards.forEach(card => {
-              card.style.background = 'linear-gradient(135deg, rgba(251, 191, 36, 0.95) 0%, rgba(252, 211, 77, 0.95) 100%)';
+              card.style.background = 'linear-gradient(135deg, rgba(251, 191, 36, 0.98) 0%, rgba(252, 211, 77, 0.98) 100%)';
+              card.style.border = '2px solid rgba(251, 191, 36, 0.8)';
             });
             
             const blueCards = clonedContainer.querySelectorAll('.column-blue');
             blueCards.forEach(card => {
-              card.style.background = 'linear-gradient(135deg, rgba(96, 165, 250, 0.95) 0%, rgba(147, 197, 253, 0.95) 100%)';
+              card.style.background = 'linear-gradient(135deg, rgba(96, 165, 250, 0.98) 0%, rgba(147, 197, 253, 0.98) 100%)';
+              card.style.border = '2px solid rgba(96, 165, 250, 0.8)';
             });
             
             const whiteCards = clonedContainer.querySelectorAll('.column-white');
             whiteCards.forEach(card => {
               card.style.background = 'rgba(255, 255, 255, 0.98)';
+              card.style.border = '2px solid rgba(226, 232, 240, 0.8)';
             });
             
             const mixedCards = clonedContainer.querySelectorAll('.column-mixed');
             mixedCards.forEach(card => {
-              card.style.background = 'linear-gradient(135deg, rgba(196, 181, 253, 0.95) 0%, rgba(221, 214, 254, 0.95) 100%)';
+              card.style.background = 'linear-gradient(135deg, rgba(196, 181, 253, 0.98) 0%, rgba(221, 214, 254, 0.98) 100%)';
+              card.style.border = '2px solid rgba(196, 181, 253, 0.8)';
             });
             
-            // CARD CONTENT - Compacto
+            // CARD CONTENT - GRANDE
             const cardContents = clonedContainer.querySelectorAll('.card-content');
             cardContents.forEach(content => {
-              content.style.padding = '0.8rem';
-              content.style.gap = '0.6rem';
+              content.style.padding = '1.5rem';
+              content.style.gap = '1rem';
             });
             
-            // LABELS - Compacto
+            // LABELS - GRANDE
             const labels = clonedContainer.querySelectorAll('.field-label');
             labels.forEach(label => {
-              label.style.fontSize = '0.7rem';
+              label.style.fontSize = '1.1rem';
               label.style.color = '#1a202c';
               label.style.fontWeight = '700';
               label.style.textTransform = 'uppercase';
-              label.style.marginBottom = '0.2rem';
-              label.style.letterSpacing = '0.3px';
+              label.style.marginBottom = '0.4rem';
+              label.style.letterSpacing = '0.5px';
             });
             
-            // VALORES DOS CAMPOS - Compacto
+            // VALORES DOS CAMPOS - GRANDE
             const printValues = clonedContainer.querySelectorAll('.print-value');
             printValues.forEach(pv => {
-              pv.style.fontSize = '0.85rem';
+              pv.style.fontSize = '1.2rem';
               pv.style.fontWeight = '500';
               pv.style.color = '#1a202c';
               pv.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-              pv.style.border = '2px solid rgba(226, 232, 240, 0.6)';
-              pv.style.padding = '0.6rem';
-              pv.style.borderRadius = '10px';
-              pv.style.minHeight = '36px';
+              pv.style.border = '2px solid rgba(226, 232, 240, 0.8)';
+              pv.style.padding = '1.1rem';
+              pv.style.borderRadius = '14px';
+              pv.style.minHeight = '55px';
               pv.style.display = 'flex';
               pv.style.alignItems = 'center';
               pv.style.wordWrap = 'break-word';
               pv.style.wordBreak = 'break-word';
               pv.style.overflowWrap = 'break-word';
               pv.style.whiteSpace = 'normal';
-              pv.style.lineHeight = '1.3';
+              pv.style.lineHeight = '1.5';
               pv.style.maxWidth = '100%';
             });
             
-            // SHARE BB - Compacto
+            // SHARE BB - GRANDE E DESTACADO
             const shareBB = clonedContainer.querySelector('.share-bb-value');
             if (shareBB) {
-              shareBB.style.fontSize = '1.6rem';
+              shareBB.style.fontSize = '2.5rem';
               shareBB.style.fontWeight = '800';
-              shareBB.style.padding = '0.8rem';
+              shareBB.style.padding = '1.5rem';
               shareBB.style.backgroundColor = 'white';
-              shareBB.style.borderRadius = '14px';
+              shareBB.style.borderRadius = '18px';
               shareBB.style.textAlign = 'center';
               shareBB.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
               shareBB.style.webkitBackgroundClip = 'text';
               shareBB.style.webkitTextFillColor = 'transparent';
               shareBB.style.backgroundClip = 'text';
-              shareBB.style.border = '2px solid rgba(102, 126, 234, 0.3)';
+              shareBB.style.border = '3px solid rgba(102, 126, 234, 0.5)';
+              shareBB.style.boxShadow = '0 8px 30px rgba(102, 126, 234, 0.3)';
             }
           }
         }
       });
 
-      console.log('Canvas gerado com sucesso em modo paisagem!');
+      console.log('Canvas gerado com sucesso em modo paisagem GRANDE!');
       
       // Baixar imagem
       const link = document.createElement('a');
