@@ -86,8 +86,8 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 1.19rem 2.38rem;
-  font-size: 1.309rem;
+  padding: 0.833rem 1.666rem;
+  font-size: 0.916rem;
   font-weight: 600;
   border-radius: 16px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -112,8 +112,8 @@ body {
 }
 
 .button-icon {
-  width: 26px;
-  height: 26px;
+  width: 18px;
+  height: 18px;
 }
 
 .main-content {
