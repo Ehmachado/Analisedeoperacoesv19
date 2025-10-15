@@ -263,13 +263,13 @@ body {
 }
 
 .share-bb-value {
-  font-size: 2.975rem;
+  font-size: 2.083rem;
   font-weight: 800;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  padding: 1.785rem;
+  padding: 1.25rem;
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
   text-align: center;
