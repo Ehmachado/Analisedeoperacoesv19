@@ -395,46 +395,44 @@ function App() {
             {renderField('Agência', 'agencia')}
           </div>
 
-          <div className="columns-grid">
-            {/* Column 1 - Yellow */}
-            <Card className="column-card column-yellow">
-              <CardContent className="card-content">
+          <div className="blocks-grid">
+            {/* Bloco 1 - Informações Gerais do Cliente */}
+            <Card className="block-card block-yellow">
+              <CardContent className="block-content">
+                <h2 className="block-title">INFORMAÇÕES GERAIS DO CLIENTE</h2>
                 {renderField('Alçada', 'alcada')}
                 {renderField('MCI', 'mci')}
                 {renderField('Cliente', 'cliente')}
                 {renderField('Idade do Cliente', 'idadeCliente')}
                 {renderField('Cliente desde', 'clienteDesde', 'date')}
+                {renderField('Rating', 'rating')}
+              </CardContent>
+            </Card>
+
+            {/* Bloco 2 - Dados da Operação */}
+            <Card className="block-card block-blue">
+              <CardContent className="block-content">
+                <h2 className="block-title">DADOS DA OPERAÇÃO</h2>
                 {renderField('Proposta', 'proposta')}
                 {renderField('Linha de Crédito', 'linhaCredito')}
                 {renderField('Item Financiado', 'itemFinanciado')}
-                {renderField('Rating', 'rating')}
+                {renderField('Valor Operação', 'valorOperacao', 'currency')}
+                {renderField('Seguros (Quais?)', 'seguros')}
+                {renderField('RS contratado na operação', 'rsContratado', 'currency')}
                 {renderField('Autorização Grão', 'autorizacaoGrao', 'textarea')}
               </CardContent>
             </Card>
 
-            {/* Column 2 - Blue */}
-            <Card className="column-card column-blue">
-              <CardContent className="card-content">
-                {renderField('Valor Operação', 'valorOperacao', 'currency')}
-                {renderField('Seguros (Quais?)', 'seguros')}
-                {renderField('RS contratado na operação', 'rsContratado', 'currency')}
+            {/* Bloco 3 - Informações Financeiras */}
+            <Card className="block-card block-purple">
+              <CardContent className="block-content">
+                <h2 className="block-title">INFORMAÇÕES FINANCEIRAS</h2>
                 {renderField('Limite de Crédito (Vigência e Risco)', 'limiteCredito')}
                 {renderField('Condicionante do LC (Qual?)', 'condicionanteLC')}
                 {renderField('Receita Bruta Total Obtida', 'receitaBrutaObtida', 'currency')}
                 {renderField('Receita Bruta Total Prevista', 'receitaBrutaPrevista', 'currency')}
                 {renderField('Resultado Operacional Agropecuário Obtido', 'resultadoObtido', 'currency')}
                 {renderField('Resultado Operacional Agropecuário Previsto', 'resultadoPrevisto', 'currency')}
-                {renderField('Garantias', 'garantias')}
-              </CardContent>
-            </Card>
-
-            {/* Column 3 - Purple/Mixed */}
-            <Card className="column-card column-mixed">
-              <CardContent className="card-content">
-                {renderField('Pecuária: Quantidade de animais compatível com área?', 'pecuariaCompativel', 'select', {
-                  items: ['Sim', 'Não', 'Não se aplica']
-                })}
-                {renderField('Justificativa Pecuária', 'justificativaPecuaria', 'textarea')}
                 <div className="field-group">
                   <Label className="field-label">Share BB (%)</Label>
                   <div className="share-bb-value" title="Calculado automaticamente">
@@ -446,6 +444,18 @@ function App() {
                 {renderField('Endividamento no SFN', 'endividamentoSFN', 'currency')}
                 {renderField('Endividamento no BB', 'endividamentoBB', 'currency')}
                 {renderField('Inad Agro Agência (rel 5398)', 'inadAgroAgencia', 'currency')}
+              </CardContent>
+            </Card>
+
+            {/* Bloco 4 - Garantias e Análises */}
+            <Card className="block-card block-green">
+              <CardContent className="block-content">
+                <h2 className="block-title">GARANTIAS E ANÁLISES</h2>
+                {renderField('Garantias', 'garantias')}
+                {renderField('Pecuária: Quantidade de animais compatível com área?', 'pecuariaCompativel', 'select', {
+                  items: ['Sim', 'Não', 'Não se aplica']
+                })}
+                {renderField('Justificativa Pecuária', 'justificativaPecuaria', 'textarea')}
                 {renderField('Proposta Customizada', 'propostaCustomizada', 'select', {
                   items: ['Sim', 'Não', 'Não se aplica']
                 })}
