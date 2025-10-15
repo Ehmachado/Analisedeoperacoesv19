@@ -219,6 +219,10 @@ body {
 }
 
 /* Export mode - maintain layout, hide buttons */
+.export-mode {
+  background: #ffffff !important;
+}
+
 .export-mode .header-actions {
   display: none !important;
 }
@@ -226,18 +230,27 @@ body {
 .export-mode .app-header {
   position: relative !important;
   padding: 1.5rem 1.5rem 1rem !important;
+  background: linear-gradient(135deg, #ffcc00 0%, #ffe680 100%) !important;
 }
 
 .export-mode .app-title {
-  font-size: 2.5rem !important;
+  font-size: 2.8rem !important;
+  color: #003399 !important;
 }
 
 .export-mode .app-subtitle {
-  font-size: 1.1rem !important;
+  font-size: 1.3rem !important;
+  color: #2a56c6 !important;
 }
 
 .export-mode .main-content {
   padding: 1.5rem !important;
+  background: #ffffff !important;
+}
+
+.export-mode .fixed-fields {
+  background: white !important;
+  border: 2px solid #003399 !important;
 }
 
 .export-mode .columns-grid {
@@ -250,14 +263,39 @@ body {
 }
 
 .export-mode .field-label {
-  font-size: 0.85rem !important;
+  font-size: 1.1rem !important;
+  color: #003399 !important;
 }
 
 .export-mode .print-value,
-.export-mode .field-input,
+.export-mode .field-input {
+  font-size: 1.15rem !important;
+  padding: 0.7rem !important;
+  color: #0c1424 !important;
+  background: white !important;
+}
+
 .export-mode .share-bb-value {
-  font-size: 0.9rem !important;
-  padding: 0.6rem !important;
+  font-size: 1.6rem !important;
+  padding: 1rem !important;
+  background: #ffcc00 !important;
+  color: #003399 !important;
+}
+
+.export-mode .column-yellow {
+  background: #ffe680 !important;
+}
+
+.export-mode .column-blue {
+  background: #e6f0ff !important;
+}
+
+.export-mode .column-white {
+  background: #ffffff !important;
+}
+
+.export-mode .column-mixed {
+  background: #f0f7ff !important;
 }
 
 /* Responsive design */
