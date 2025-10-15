@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #0a1929 0%, #1a3a5c 50%, #2a56c6 100%);
+  background: linear-gradient(135deg, #e3f2fd 0%, #f0f4f8 50%, #e8eaf6 100%);
   color: #1a202c;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17,17 +17,13 @@ body {
 
 .app-container {
   min-height: 100vh;
-  padding-bottom: 3rem;
-  background: linear-gradient(135deg, #0a1929 0%, #1a3a5c 50%, #2a56c6 100%);
+  padding-bottom: 2rem;
+  background: linear-gradient(135deg, #e3f2fd 0%, #f0f4f8 50%, #e8eaf6 100%);
 }
 
 .export-container {
-  background: linear-gradient(135deg, #0a1929 0%, #1a3a5c 50%, #2a56c6 100%);
+  background: linear-gradient(135deg, #e3f2fd 0%, #f0f4f8 50%, #e8eaf6 100%);
   min-height: 100vh;
-}
-
-.export-container {
-  background: white;
 }
 
 .app-header {
