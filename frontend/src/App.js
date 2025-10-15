@@ -185,10 +185,10 @@ function App() {
               header.style.padding = '2rem';
             }
             
-            // TÍTULO - Gradiente Dourado BB (30% menor)
+            // TÍTULO - Gradiente Dourado BB (mais 30% menor)
             const title = clonedContainer.querySelector('.app-title');
             if (title) {
-              title.style.fontSize = '3.5rem';
+              title.style.fontSize = '2.45rem';
               title.style.fontWeight = '800';
               title.style.background = 'linear-gradient(135deg, #ffcc00 0%, #ffe680 50%, #ffffff 100%)';
               title.style.webkitBackgroundClip = 'text';
@@ -196,33 +196,33 @@ function App() {
               title.style.backgroundClip = 'text';
             }
             
-            // SUBTÍTULO (30% menor)
+            // SUBTÍTULO (mais 30% menor)
             const subtitle = clonedContainer.querySelector('.app-subtitle');
             if (subtitle) {
-              subtitle.style.fontSize = '1.26rem';
+              subtitle.style.fontSize = '0.882rem';
               subtitle.style.color = '#ffe680';
             }
             
-            // LABELS - Tamanho reduzido 30%
+            // LABELS - Tamanho reduzido mais 30%
             const labels = clonedContainer.querySelectorAll('.field-label');
             labels.forEach(label => {
-              label.style.fontSize = '1.0115rem';
+              label.style.fontSize = '0.708rem';
               label.style.color = '#1a202c';
               label.style.fontWeight = '700';
               label.style.textTransform = 'uppercase';
             });
             
-            // VALORES DOS CAMPOS - Tamanho reduzido 30%
+            // VALORES DOS CAMPOS - Tamanho reduzido mais 30%
             const printValues = clonedContainer.querySelectorAll('.print-value');
             printValues.forEach(pv => {
-              pv.style.fontSize = '1.26rem';
+              pv.style.fontSize = '0.882rem';
               pv.style.fontWeight = '500';
               pv.style.color = '#1a202c';
               pv.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
               pv.style.border = '2px solid rgba(226, 232, 240, 0.6)';
-              pv.style.padding = '1.05rem';
+              pv.style.padding = '0.735rem';
               pv.style.borderRadius = '16px';
-              pv.style.minHeight = '56px';
+              pv.style.minHeight = '40px';
               pv.style.display = 'flex';
               pv.style.alignItems = 'center';
               pv.style.wordWrap = 'break-word';
@@ -233,12 +233,12 @@ function App() {
               pv.style.maxWidth = '100%';
             });
             
-            // SHARE BB - Tamanho reduzido 30%
+            // SHARE BB - Tamanho reduzido mais 30%
             const shareBB = clonedContainer.querySelector('.share-bb-value');
             if (shareBB) {
-              shareBB.style.fontSize = '2.45rem';
+              shareBB.style.fontSize = '1.715rem';
               shareBB.style.fontWeight = '800';
-              shareBB.style.padding = '1.4rem';
+              shareBB.style.padding = '0.98rem';
               shareBB.style.backgroundColor = 'white';
               shareBB.style.borderRadius = '20px';
               shareBB.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
