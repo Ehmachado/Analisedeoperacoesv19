@@ -44,25 +44,46 @@ O app estará disponível em `http://localhost:3000`
 yarn build
 ```
 
-## 🌐 Deploy no GitHub Pages
+## 🌐 Deploy no GitHub Pages (Método Simples)
 
-### Preparação para GitHub Pages
+### Opção 1: Build Automático (RECOMENDADO)
 
 ```bash
-# 1. Fazer build do projeto
+# Execute o script de build
+cd /app
+./build-for-github.sh
+
+# Faça commit e push
+git add .
+git commit -m "Deploy: Super Barreiras"
+git push origin main
+```
+
+**No GitHub:**
+1. Vá em **Settings** → **Pages**
+2. Em **Source**: selecione **Deploy from a branch**
+3. Branch: **main** 
+4. Folder: **/docs** ✅
+5. Clique em **Save**
+6. Aguarde 2-5 minutos
+7. Acesse: `https://seu-usuario.github.io/seu-repositorio`
+
+### Opção 2: Build Manual
+
+```bash
+# 1. Build do projeto
 cd /app/frontend
 yarn build
 
-# 2. Criar branch gh-pages e copiar build
+# 2. Copiar para /docs
 cd /app
-git checkout -b gh-pages
-cp -r frontend/build/* .
-git add .
-git commit -m "Deploy to GitHub Pages"
-git push origin gh-pages
+rm -rf docs
+cp -r frontend/build docs
 
-# 3. Configurar no GitHub
-# Vá em Settings → Pages → Source: gh-pages branch
+# 3. Commit e push
+git add .
+git commit -m "Deploy: Super Barreiras"
+git push origin main
 ```
 
 ## 📋 Como Usar
