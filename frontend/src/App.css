@@ -145,6 +145,10 @@ body {
   background: white;
 }
 
+.column-mixed {
+  background: linear-gradient(135deg, #e6f0ff 0%, #ffffff 100%);
+}
+
 .card-content {
   padding: 2rem;
   display: flex;
