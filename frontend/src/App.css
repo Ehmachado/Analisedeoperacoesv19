@@ -346,15 +346,15 @@ body {
 }
 
 .export-mode .field-label {
-  font-size: 1.445rem !important;
+  font-size: 1.0115rem !important;
   color: #1a202c !important;
   text-transform: uppercase !important;
   font-weight: 700 !important;
 }
 
 .export-mode .print-value {
-  font-size: 1.8rem !important;
-  padding: 1.5rem !important;
+  font-size: 1.26rem !important;
+  padding: 1.05rem !important;
   color: #1a202c !important;
   background: rgba(255, 255, 255, 0.95) !important;
   border: 2px solid rgba(226, 232, 240, 0.6) !important;
@@ -363,13 +363,13 @@ body {
   overflow-wrap: break-word !important;
   white-space: normal !important;
   max-width: 100% !important;
-  min-height: 80px !important;
+  min-height: 56px !important;
   line-height: 1.4 !important;
 }
 
 .export-mode .share-bb-value {
-  font-size: 3.5rem !important;
-  padding: 2rem !important;
+  font-size: 2.45rem !important;
+  padding: 1.4rem !important;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
