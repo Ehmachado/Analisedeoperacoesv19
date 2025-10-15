@@ -182,27 +182,27 @@ function App() {
             const header = clonedContainer.querySelector('.app-header');
             if (header) {
               header.style.background = 'linear-gradient(135deg, #003399 0%, #0047b3 50%, #2a56c6 100%)';
-              header.style.borderBottom = '5px solid #ffcc00';
-              header.style.padding = '3rem 2rem';
-              header.style.marginBottom = '2rem';
+              header.style.borderBottom = '3px solid #ffcc00';
+              header.style.padding = '1.5rem 1.5rem 1rem';
+              header.style.marginBottom = '1rem';
             }
             
-            // TÍTULO BB - Maior para paisagem
+            // TÍTULO BB - Compacto
             const title = clonedContainer.querySelector('.app-title');
             if (title) {
-              title.style.fontSize = '4.5rem';
+              title.style.fontSize = '2.5rem';
               title.style.fontWeight = '800';
               title.style.background = 'linear-gradient(135deg, #ffcc00 0%, #ffe680 50%, #ffffff 100%)';
               title.style.webkitBackgroundClip = 'text';
               title.style.webkitTextFillColor = 'transparent';
               title.style.backgroundClip = 'text';
-              title.style.marginBottom = '0.5rem';
+              title.style.marginBottom = '0.3rem';
             }
             
             // SUBTÍTULO
             const subtitle = clonedContainer.querySelector('.app-subtitle');
             if (subtitle) {
-              subtitle.style.fontSize = '1.5rem';
+              subtitle.style.fontSize = '0.9rem';
               subtitle.style.color = '#ffe680';
               subtitle.style.fontWeight = '500';
             }
@@ -210,7 +210,7 @@ function App() {
             // MAIN CONTENT
             const mainContent = clonedContainer.querySelector('.main-content');
             if (mainContent) {
-              mainContent.style.padding = '2rem';
+              mainContent.style.padding = '1rem';
             }
             
             // FIXED FIELDS
@@ -218,24 +218,25 @@ function App() {
             if (fixedFields) {
               fixedFields.style.background = 'rgba(255, 255, 255, 0.95)';
               fixedFields.style.border = '2px solid rgba(226, 232, 240, 0.8)';
-              fixedFields.style.borderRadius = '20px';
-              fixedFields.style.padding = '2rem';
-              fixedFields.style.marginBottom = '2rem';
+              fixedFields.style.borderRadius = '16px';
+              fixedFields.style.padding = '1rem';
+              fixedFields.style.marginBottom = '1rem';
+              fixedFields.style.gap = '0.8rem';
             }
             
-            // GRID DE COLUNAS - Otimizar para paisagem
+            // GRID DE COLUNAS - Compacto
             const columnsGrids = clonedContainer.querySelectorAll('.columns-grid');
             columnsGrids.forEach(grid => {
               grid.style.display = 'grid';
               grid.style.gridTemplateColumns = 'repeat(4, 1fr)';
-              grid.style.gap = '1.5rem';
-              grid.style.marginBottom = '1.5rem';
+              grid.style.gap = '0.8rem';
+              grid.style.marginBottom = '0.8rem';
             });
             
             // CARDS
             const cards = clonedContainer.querySelectorAll('.column-card');
             cards.forEach(card => {
-              card.style.borderRadius = '20px';
+              card.style.borderRadius = '14px';
               card.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
             });
             
@@ -260,59 +261,59 @@ function App() {
               card.style.background = 'linear-gradient(135deg, rgba(196, 181, 253, 0.95) 0%, rgba(221, 214, 254, 0.95) 100%)';
             });
             
-            // CARD CONTENT
+            // CARD CONTENT - Compacto
             const cardContents = clonedContainer.querySelectorAll('.card-content');
             cardContents.forEach(content => {
-              content.style.padding = '1.5rem';
-              content.style.gap = '1rem';
+              content.style.padding = '0.8rem';
+              content.style.gap = '0.6rem';
             });
             
-            // LABELS - Tamanho otimizado para paisagem
+            // LABELS - Compacto
             const labels = clonedContainer.querySelectorAll('.field-label');
             labels.forEach(label => {
-              label.style.fontSize = '1rem';
+              label.style.fontSize = '0.7rem';
               label.style.color = '#1a202c';
               label.style.fontWeight = '700';
               label.style.textTransform = 'uppercase';
-              label.style.marginBottom = '0.4rem';
-              label.style.letterSpacing = '0.5px';
+              label.style.marginBottom = '0.2rem';
+              label.style.letterSpacing = '0.3px';
             });
             
-            // VALORES DOS CAMPOS - Tamanho otimizado
+            // VALORES DOS CAMPOS - Compacto
             const printValues = clonedContainer.querySelectorAll('.print-value');
             printValues.forEach(pv => {
-              pv.style.fontSize = '1.1rem';
+              pv.style.fontSize = '0.85rem';
               pv.style.fontWeight = '500';
               pv.style.color = '#1a202c';
               pv.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
               pv.style.border = '2px solid rgba(226, 232, 240, 0.6)';
-              pv.style.padding = '1rem';
-              pv.style.borderRadius = '12px';
-              pv.style.minHeight = '48px';
+              pv.style.padding = '0.6rem';
+              pv.style.borderRadius = '10px';
+              pv.style.minHeight = '36px';
               pv.style.display = 'flex';
               pv.style.alignItems = 'center';
               pv.style.wordWrap = 'break-word';
               pv.style.wordBreak = 'break-word';
               pv.style.overflowWrap = 'break-word';
               pv.style.whiteSpace = 'normal';
-              pv.style.lineHeight = '1.5';
+              pv.style.lineHeight = '1.3';
               pv.style.maxWidth = '100%';
             });
             
-            // SHARE BB - Destaque
+            // SHARE BB - Compacto
             const shareBB = clonedContainer.querySelector('.share-bb-value');
             if (shareBB) {
-              shareBB.style.fontSize = '3rem';
+              shareBB.style.fontSize = '1.6rem';
               shareBB.style.fontWeight = '800';
-              shareBB.style.padding = '1.5rem';
+              shareBB.style.padding = '0.8rem';
               shareBB.style.backgroundColor = 'white';
-              shareBB.style.borderRadius = '20px';
+              shareBB.style.borderRadius = '14px';
               shareBB.style.textAlign = 'center';
               shareBB.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
               shareBB.style.webkitBackgroundClip = 'text';
               shareBB.style.webkitTextFillColor = 'transparent';
               shareBB.style.backgroundClip = 'text';
-              shareBB.style.border = '3px solid rgba(102, 126, 234, 0.3)';
+              shareBB.style.border = '2px solid rgba(102, 126, 234, 0.3)';
             }
           }
         }
