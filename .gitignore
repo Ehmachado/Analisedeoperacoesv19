@@ -27,8 +27,12 @@ next-env.d.ts
 
 # Production builds
 /build
+frontend/build/
 dist/
 dist
+
+# IMPORTANTE: Não ignore /docs (necessário para GitHub Pages Deploy)
+!docs/
 
 # Environment files (comprehensive coverage)
 
