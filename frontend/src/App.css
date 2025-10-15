@@ -273,28 +273,31 @@ body {
 
 .export-mode .app-header {
   position: relative !important;
-  padding: 1.5rem 1.5rem 1rem !important;
-  background: linear-gradient(135deg, #ffcc00 0%, #ffe680 100%) !important;
+  padding: 2rem !important;
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%) !important;
 }
 
 .export-mode .app-title {
-  font-size: 2.8rem !important;
-  color: #003399 !important;
+  font-size: 3rem !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
 }
 
 .export-mode .app-subtitle {
-  font-size: 1.3rem !important;
-  color: #2a56c6 !important;
+  font-size: 1.2rem !important;
+  color: #a0aec0 !important;
 }
 
 .export-mode .main-content {
-  padding: 1.5rem !important;
+  padding: 2rem !important;
   background: #ffffff !important;
 }
 
 .export-mode .fixed-fields {
-  background: white !important;
-  border: 2px solid #003399 !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
 }
 
 .export-mode .columns-grid {
@@ -307,39 +310,49 @@ body {
 }
 
 .export-mode .field-label {
-  font-size: 1.1rem !important;
-  color: #003399 !important;
+  font-size: 0.85rem !important;
+  color: #1a202c !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
 }
 
-.export-mode .print-value,
-.export-mode .field-input {
-  font-size: 1.15rem !important;
-  padding: 0.7rem !important;
-  color: #0c1424 !important;
-  background: white !important;
+.export-mode .print-value {
+  font-size: 1.1rem !important;
+  padding: 0.9rem !important;
+  color: #1a202c !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 2px solid rgba(226, 232, 240, 0.6) !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  white-space: normal !important;
+  max-width: 100% !important;
 }
 
 .export-mode .share-bb-value {
-  font-size: 1.6rem !important;
-  padding: 1rem !important;
-  background: #ffcc00 !important;
-  color: #003399 !important;
+  font-size: 2rem !important;
+  padding: 1.2rem !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  background-color: white !important;
 }
 
 .export-mode .column-yellow {
-  background: #ffe680 !important;
+  background: rgba(251, 191, 36, 0.9) !important;
 }
 
 .export-mode .column-blue {
-  background: #e6f0ff !important;
+  background: rgba(96, 165, 250, 0.9) !important;
 }
 
 .export-mode .column-white {
-  background: #ffffff !important;
+  background: rgba(255, 255, 255, 0.95) !important;
 }
 
 .export-mode .column-mixed {
-  background: #f0f7ff !important;
+  background: rgba(196, 181, 253, 0.9) !important;
 }
 
 /* Responsive design */
