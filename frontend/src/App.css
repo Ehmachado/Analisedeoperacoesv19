@@ -39,16 +39,16 @@ body {
 }
 
 .app-title {
-  font-size: 3rem;
+  font-size: 3.9rem;
   font-weight: 700;
   color: #003399;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   margin-bottom: 0.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .app-subtitle {
-  font-size: 1.25rem;
+  font-size: 1.625rem;
   color: #2a56c6;
   font-weight: 500;
 }
