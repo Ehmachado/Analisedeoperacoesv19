@@ -153,7 +153,7 @@ function App() {
       // Aguardar renderização completa
       await new Promise(resolve => setTimeout(resolve, 800));
       
-      // Capturar EXATAMENTE como está na tela
+      // Capturar em formato 4:3
       const canvas = await html2canvas(exportContainer, {
         scale: 2,
         backgroundColor: '#0a1929',
@@ -162,6 +162,8 @@ function App() {
         allowTaint: false,
         foreignObjectRendering: false,
         imageTimeout: 0,
+        windowWidth: 1600,
+        windowHeight: 1200,
         scrollX: 0,
         scrollY: 0,
         onclone: (clonedDoc) => {
