@@ -123,14 +123,8 @@ body {
 .columns-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 1.2rem;
   margin-bottom: 1rem;
-}
-
-.columns-grid-bottom {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
 }
 
 .column-card {
