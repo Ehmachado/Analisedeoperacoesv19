@@ -149,7 +149,7 @@ body {
 }
 
 .column-card {
-  border-radius: 24px;
+  border-radius: 16px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -158,7 +158,7 @@ body {
 
 .column-card:hover {
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
-  transform: translateY(-8px);
+  transform: translateY(-4px);
 }
 
 .column-yellow {
@@ -182,16 +182,16 @@ body {
 }
 
 .card-content {
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.8rem;
 }
 
 .field-group {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.3rem;
 }
 
 .select-value-export {
