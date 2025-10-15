@@ -183,7 +183,7 @@ function App() {
             value={value}
             onChange={(e) => handleChange(field, e.target.value)}
             className="field-input"
-            rows={3}
+            rows={2}
           />
         </div>
       );
