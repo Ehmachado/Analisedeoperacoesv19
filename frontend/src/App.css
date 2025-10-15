@@ -25,14 +25,14 @@ body {
 }
 
 .app-header {
-  background: linear-gradient(135deg, #ffcc00 0%, #ffd700 50%, #ffe680 100%);
-  padding: 2rem 2rem 1.5rem;
-  box-shadow: 0 8px 32px rgba(0, 51, 153, 0.2);
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  padding: 2.5rem 2rem 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 4px solid #003399;
-  backdrop-filter: blur(10px);
+  border-bottom: none;
+  backdrop-filter: blur(20px);
 }
 
 .header-content {
@@ -41,18 +41,22 @@ body {
 }
 
 .app-title {
-  font-size: 3.9rem;
-  font-weight: 700;
-  color: #003399;
-  letter-spacing: 3px;
+  font-size: 4.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -1px;
   margin-bottom: 0.5rem;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  text-shadow: none;
 }
 
 .app-subtitle {
-  font-size: 1.625rem;
-  color: #2a56c6;
+  font-size: 1.4rem;
+  color: #a0aec0;
   font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .header-actions {
