@@ -18,6 +18,12 @@ body {
 .app-container {
   min-height: 100vh;
   padding-bottom: 3rem;
+  background: linear-gradient(135deg, #0a1929 0%, #1a3a5c 50%, #2a56c6 100%);
+}
+
+.export-container {
+  background: linear-gradient(135deg, #0a1929 0%, #1a3a5c 50%, #2a56c6 100%);
+  min-height: 100vh;
 }
 
 .export-container {
