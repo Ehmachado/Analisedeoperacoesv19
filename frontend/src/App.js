@@ -131,97 +131,164 @@ function App() {
   };
 
   const exportToPNG = async () => {
+    // Ativar modo de pré-visualização para renderizar valores
+    setIsPrintPreview(true);
+    
+    // Aguardar React atualizar o DOM
+    await new Promise(resolve => setTimeout(resolve, 100));
+    
     const exportContainer = document.getElementById('export-container');
-    if (!exportContainer) return;
+    if (!exportContainer) {
+      alert('Erro: Container de exportação não encontrado');
+      setIsPrintPreview(false);
+      return;
+    }
 
     try {
-      // Create a clone for export
-      const clone = exportContainer.cloneNode(true);
-      clone.style.position = 'absolute';
-      clone.style.left = '-9999px';
-      clone.style.top = '0';
-      clone.style.width = '1800px';
-      clone.style.background = '#ffffff';
-      clone.style.padding = '20px';
+      console.log('Iniciando exportação PNG...');
       
-      document.body.appendChild(clone);
+      // Aguardar fontes carregarem
+      await document.fonts.ready;
       
-      // Replace all inputs with their values as text
-      const allInputs = clone.querySelectorAll('input[type="text"], input[type="date"], textarea');
-      allInputs.forEach(input => {
-        const value = input.value || '—';
-        const span = document.createElement('div');
-        span.textContent = value;
-        span.style.cssText = `
-          font-size: 1.15rem;
-          padding: 0.7rem;
-          background: white;
-          border-radius: 12px;
-          border: 2px solid #e5e7eb;
-          min-height: 50px;
-          display: flex;
-          align-items: center;
-          color: #0c1424;
-          font-weight: 500;
-        `;
-        input.parentNode.replaceChild(span, input);
-      });
-      
-      // Replace selects with their values
-      const allSelects = clone.querySelectorAll('[role="combobox"]');
-      allSelects.forEach(select => {
-        const fieldName = select.getAttribute('data-field');
-        const value = formData[fieldName] || 'Selecione...';
-        const span = document.createElement('div');
-        span.textContent = value;
-        span.style.cssText = `
-          font-size: 1.15rem;
-          padding: 0.7rem;
-          background: white;
-          border-radius: 12px;
-          border: 2px solid #e5e7eb;
-          min-height: 50px;
-          display: flex;
-          align-items: center;
-          color: #0c1424;
-          font-weight: 500;
-        `;
-        select.parentNode.replaceChild(span, select);
-      });
-      
-      // Hide buttons
-      const buttons = clone.querySelector('.header-actions');
-      if (buttons) buttons.style.display = 'none';
-      
-      // Apply export styles
-      clone.classList.add('export-mode');
-      
-      // Wait for rendering
+      // Aguardar mais um pouco para garantir renderização
       await new Promise(resolve => setTimeout(resolve, 500));
       
-      // Capture with html2canvas
-      const canvas = await html2canvas(clone, {
+      // Configurações otimizadas do html2canvas
+      const canvas = await html2canvas(exportContainer, {
         scale: 2,
         backgroundColor: '#ffffff',
-        logging: false,
+        logging: true,
         useCORS: true,
         allowTaint: false,
+        foreignObjectRendering: false,
+        imageTimeout: 0,
         windowWidth: 1800,
-        windowHeight: clone.scrollHeight
+        windowHeight: exportContainer.scrollHeight,
+        onclone: (clonedDoc) => {
+          console.log('Clone criado, processando...');
+          
+          const clonedContainer = clonedDoc.getElementById('export-container');
+          if (clonedContainer) {
+            // Garantir background branco
+            clonedContainer.style.backgroundColor = '#ffffff';
+            clonedContainer.style.padding = '20px';
+            
+            // Esconder botões no clone
+            const buttons = clonedContainer.querySelector('.header-actions');
+            if (buttons) buttons.style.display = 'none';
+            
+            // Garantir que todos os textos sejam visíveis
+            const allElements = clonedContainer.querySelectorAll('*');
+            allElements.forEach(el => {
+              // Forçar visibilidade
+              if (el.style.display === 'none' && !el.classList.contains('header-actions')) {
+                el.style.display = 'block';
+              }
+              
+              // Garantir que textos tenham cor
+              const computedStyle = window.getComputedStyle(el);
+              if (computedStyle.color === 'rgba(0, 0, 0, 0)' || computedStyle.color === 'transparent') {
+                el.style.color = '#0c1424';
+              }
+              
+              // Remover transforms que podem causar problemas
+              el.style.transform = 'none';
+            });
+            
+            // Garantir que os valores dos campos print-value sejam visíveis
+            const printValues = clonedContainer.querySelectorAll('.print-value');
+            printValues.forEach(pv => {
+              pv.style.backgroundColor = '#ffffff';
+              pv.style.color = '#0c1424';
+              pv.style.border = '2px solid #e5e7eb';
+              pv.style.padding = '0.7rem';
+              pv.style.borderRadius = '12px';
+              pv.style.minHeight = '50px';
+              pv.style.display = 'flex';
+              pv.style.alignItems = 'center';
+              pv.style.fontSize = '1.15rem';
+              pv.style.fontWeight = '500';
+            });
+            
+            // Garantir que labels sejam visíveis
+            const labels = clonedContainer.querySelectorAll('.field-label');
+            labels.forEach(label => {
+              label.style.color = '#003399';
+              label.style.fontSize = '1.1rem';
+              label.style.fontWeight = '600';
+            });
+            
+            // Garantir cores de fundo dos cards
+            const yellowCards = clonedContainer.querySelectorAll('.column-yellow');
+            yellowCards.forEach(card => {
+              card.style.backgroundColor = '#ffe680';
+            });
+            
+            const blueCards = clonedContainer.querySelectorAll('.column-blue');
+            blueCards.forEach(card => {
+              card.style.backgroundColor = '#e6f0ff';
+            });
+            
+            const whiteCards = clonedContainer.querySelectorAll('.column-white');
+            whiteCards.forEach(card => {
+              card.style.backgroundColor = '#ffffff';
+            });
+            
+            const mixedCards = clonedContainer.querySelectorAll('.column-mixed');
+            mixedCards.forEach(card => {
+              card.style.backgroundColor = '#f0f7ff';
+            });
+            
+            // Garantir cabeçalho visível
+            const header = clonedContainer.querySelector('.app-header');
+            if (header) {
+              header.style.background = 'linear-gradient(135deg, #ffcc00 0%, #ffe680 100%)';
+              header.style.padding = '1.5rem';
+            }
+            
+            const title = clonedContainer.querySelector('.app-title');
+            if (title) {
+              title.style.color = '#003399';
+              title.style.fontSize = '2.8rem';
+              title.style.fontWeight = '700';
+            }
+            
+            const subtitle = clonedContainer.querySelector('.app-subtitle');
+            if (subtitle) {
+              subtitle.style.color = '#2a56c6';
+              subtitle.style.fontSize = '1.3rem';
+            }
+            
+            // Garantir Share BB visível
+            const shareBB = clonedContainer.querySelector('.share-bb-value');
+            if (shareBB) {
+              shareBB.style.backgroundColor = '#ffcc00';
+              shareBB.style.color = '#003399';
+              shareBB.style.fontSize = '1.6rem';
+              shareBB.style.fontWeight = '700';
+              shareBB.style.padding = '1rem';
+              shareBB.style.borderRadius = '16px';
+            }
+          }
+        }
       });
+
+      console.log('Canvas gerado com sucesso!');
       
-      // Remove clone
-      document.body.removeChild(clone);
-      
-      // Download
+      // Baixar imagem
       const link = document.createElement('a');
       link.download = `super-barreiras-${Date.now()}.png`;
       link.href = canvas.toDataURL('image/png', 1.0);
       link.click();
       
+      console.log('Exportação concluída!');
+      
     } catch (error) {
       console.error('Erro ao exportar:', error);
-      alert('Erro ao exportar imagem. Tente novamente.');
+      alert('Erro ao exportar imagem. Detalhes no console.');
+    } finally {
+      // Desativar modo de pré-visualização
+      setIsPrintPreview(false);
     }
   };
 
