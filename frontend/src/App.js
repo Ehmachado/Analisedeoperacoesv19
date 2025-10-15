@@ -334,12 +334,6 @@ function App() {
                 {renderField('Cliente', 'cliente')}
                 {renderField('Idade do Cliente', 'idadeCliente')}
                 {renderField('Cliente desde', 'clienteDesde', 'date')}
-              </CardContent>
-            </Card>
-
-            {/* Column 2 - Yellow */}
-            <Card className="column-card column-yellow">
-              <CardContent className="card-content">
                 {renderField('Proposta', 'proposta')}
                 {renderField('Linha de Crédito', 'linhaCredito')}
                 {renderField('Item Financiado', 'itemFinanciado')}
@@ -348,7 +342,7 @@ function App() {
               </CardContent>
             </Card>
 
-            {/* Column 3 - Blue */}
+            {/* Column 2 - Blue */}
             <Card className="column-card column-blue">
               <CardContent className="card-content">
                 {renderField('Valor Operação', 'valorOperacao', 'currency')}
@@ -358,27 +352,19 @@ function App() {
                 {renderField('Condicionante do LC (Qual?)', 'condicionanteLC')}
                 {renderField('Receita Bruta Total Obtida', 'receitaBrutaObtida', 'currency')}
                 {renderField('Receita Bruta Total Prevista', 'receitaBrutaPrevista', 'currency')}
+                {renderField('Resultado Operacional Agropecuário Obtido', 'resultadoObtido', 'currency')}
+                {renderField('Resultado Operacional Agropecuário Previsto', 'resultadoPrevisto', 'currency')}
               </CardContent>
             </Card>
 
-            {/* Column 4 - Blue & White */}
+            {/* Column 3 - Mixed */}
             <Card className="column-card column-mixed">
               <CardContent className="card-content">
-                {renderField('Resultado Operacional Agropecuário Obtido', 'resultadoObtido', 'currency')}
-                {renderField('Resultado Operacional Agropecuário Previsto', 'resultadoPrevisto', 'currency')}
                 {renderField('Pecuária: Quantidade de animais compatível com área?', 'pecuariaCompativel', 'select', {
                   items: ['Sim', 'Não', 'Não se aplica']
                 })}
                 {renderField('Justificativa Pecuária', 'justificativaPecuaria', 'textarea')}
                 {renderField('Garantias', 'garantias')}
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="columns-grid columns-grid-bottom">
-            {/* Bottom Column 1 - White */}
-            <Card className="column-card column-white">
-              <CardContent className="card-content">
                 <div className="field-group">
                   <Label className="field-label">Share BB (%)</Label>
                   <div className="share-bb-value" title="Calculado automaticamente">
@@ -389,8 +375,10 @@ function App() {
                 {renderField('Patrimônio Total', 'patrimonioTotal', 'currency')}
               </CardContent>
             </Card>
+          </div>
 
-            {/* Bottom Column 2 - White */}
+          <div className="columns-grid columns-grid-bottom">
+            {/* Bottom Column 1 - White */}
             <Card className="column-card column-white">
               <CardContent className="card-content">
                 {renderField('Endividamento no SFN', 'endividamentoSFN', 'currency')}
@@ -399,7 +387,7 @@ function App() {
               </CardContent>
             </Card>
 
-            {/* Bottom Column 3 - White */}
+            {/* Bottom Column 2 - White */}
             <Card className="column-card column-white">
               <CardContent className="card-content">
                 {renderField('Proposta Customizada', 'propostaCustomizada', 'select', {
