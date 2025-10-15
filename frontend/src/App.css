@@ -101,11 +101,14 @@ body {
 }
 
 .export-button {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #003399 0%, #2a56c6 100%);
+  border: 2px solid rgba(255, 204, 0, 0.3);
 }
 
 .export-button:hover {
-  background: linear-gradient(135deg, #5568d3 0%, #6a4193 100%);
+  background: linear-gradient(135deg, #002266 0%, #1a4696 100%);
+  border-color: #ffcc00;
+  box-shadow: 0 15px 40px rgba(0, 51, 153, 0.5), 0 0 30px rgba(255, 204, 0, 0.3);
 }
 
 .button-icon {
