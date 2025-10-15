@@ -163,6 +163,10 @@ body {
   gap: 0.5rem;
 }
 
+.select-value-export {
+  display: none;
+}
+
 .field-label {
   font-size: 1.3rem;
   font-weight: 600;
