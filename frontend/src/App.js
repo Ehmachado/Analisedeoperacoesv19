@@ -131,18 +131,22 @@ function App() {
   };
 
   const exportToPNG = async () => {
-    const element = document.getElementById('export-content');
-    if (!element) return;
+    const exportContainer = document.getElementById('export-container');
+    if (!exportContainer) return;
 
-    // Add export class for 4-column layout
-    element.classList.add('export-mode');
+    // Add export class for styling
+    exportContainer.classList.add('export-mode');
     
     try {
-      const canvas = await html2canvas(element, {
+      const canvas = await html2canvas(exportContainer, {
         scale: 2,
         backgroundColor: '#ffffff',
         logging: false,
-        useCORS: true
+        useCORS: true,
+        allowTaint: true,
+        foreignObjectRendering: false,
+        imageTimeout: 0,
+        removeContainer: false
       });
 
       // Compress the image
@@ -154,7 +158,7 @@ function App() {
       console.error('Erro ao exportar:', error);
       alert('Erro ao exportar imagem. Tente novamente.');
     } finally {
-      element.classList.remove('export-mode');
+      exportContainer.classList.remove('export-mode');
     }
   };
 
