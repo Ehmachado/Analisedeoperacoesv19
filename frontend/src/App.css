@@ -218,6 +218,11 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   color: #1a202c;
   font-weight: 500;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  min-height: 60px;
+  resize: vertical;
 }
 
 .field-input:focus {
