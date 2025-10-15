@@ -145,7 +145,10 @@ function App() {
     }
 
     try {
-      console.log('Iniciando exportação PNG como visualizado...');
+      console.log('Iniciando exportação PNG 4:3 harmônica...');
+      
+      // Adicionar classe de exportação para estilos especiais
+      exportContainer.classList.add('export-mode');
       
       // Aguardar fontes carregarem
       await document.fonts.ready;
@@ -153,32 +156,96 @@ function App() {
       // Aguardar renderização completa
       await new Promise(resolve => setTimeout(resolve, 800));
       
-      // Capturar em formato 4:3
+      // Capturar em formato 4:3 de alta qualidade (2048x1536)
       const canvas = await html2canvas(exportContainer, {
-        scale: 2,
+        scale: 2.5,
         backgroundColor: '#0a1929',
         logging: false,
         useCORS: true,
         allowTaint: false,
         foreignObjectRendering: false,
         imageTimeout: 0,
-        windowWidth: 1600,
-        windowHeight: 1200,
+        width: 2048,
+        height: 1536,
+        windowWidth: 2048,
+        windowHeight: 1536,
         scrollX: 0,
         scrollY: 0,
         onclone: (clonedDoc) => {
-          console.log('Capturando exatamente como visualizado...');
+          console.log('Aplicando estilos de exportação harmônica...');
           
           const clonedContainer = clonedDoc.getElementById('export-container');
           if (clonedContainer) {
-            // Apenas esconder os botões de ação
+            // Aplicar estilos para exportação bonita
+            clonedContainer.style.width = '2048px';
+            clonedContainer.style.height = '1536px';
+            clonedContainer.style.overflow = 'hidden';
+            clonedContainer.style.background = 'linear-gradient(135deg, #0a1929 0%, #1a3a5c 50%, #2a56c6 100%)';
+            
+            // Esconder os botões de ação
             const buttons = clonedContainer.querySelector('.header-actions');
             if (buttons) buttons.style.display = 'none';
+            
+            // Ajustar o header para a exportação
+            const header = clonedContainer.querySelector('.app-header');
+            if (header) {
+              header.style.padding = '1.5rem 2rem';
+              header.style.background = 'linear-gradient(135deg, #003399 0%, #0047b3 50%, #2a56c6 100%)';
+              header.style.borderBottom = '3px solid #ffcc00';
+            }
+            
+            const title = clonedContainer.querySelector('.app-title');
+            if (title) {
+              title.style.fontSize = '2.5rem';
+              title.style.marginBottom = '0.5rem';
+            }
+            
+            const subtitle = clonedContainer.querySelector('.app-subtitle');
+            if (subtitle) {
+              subtitle.style.fontSize = '1rem';
+            }
+            
+            // Ajustar o conteúdo principal
+            const mainContent = clonedContainer.querySelector('.main-content');
+            if (mainContent) {
+              mainContent.style.padding = '2rem';
+              mainContent.style.maxWidth = '100%';
+            }
+            
+            // Ajustar as colunas para melhor aproveitamento do espaço 4:3
+            const columnsGrid = clonedContainer.querySelector('.columns-grid');
+            if (columnsGrid) {
+              columnsGrid.style.gap = '1.5rem';
+            }
+            
+            // Ajustar campos para melhor legibilidade na exportação
+            const fieldLabels = clonedContainer.querySelectorAll('.field-label');
+            fieldLabels.forEach(label => {
+              label.style.fontSize = '0.85rem';
+              label.style.fontWeight = '700';
+            });
+            
+            const printValues = clonedContainer.querySelectorAll('.print-value');
+            printValues.forEach(value => {
+              value.style.fontSize = '1.1rem';
+              value.style.padding = '0.75rem';
+              value.style.minHeight = '45px';
+            });
+            
+            // Ajustar Share BB para destaque
+            const shareBB = clonedContainer.querySelector('.share-bb-value');
+            if (shareBB) {
+              shareBB.style.fontSize = '2rem';
+              shareBB.style.padding = '1rem';
+            }
           }
         }
       });
 
       console.log('Canvas gerado com sucesso!');
+      
+      // Remover classe de exportação
+      exportContainer.classList.remove('export-mode');
       
       // Baixar imagem
       const link = document.createElement('a');
@@ -191,6 +258,7 @@ function App() {
     } catch (error) {
       console.error('Erro ao exportar:', error);
       alert('Erro ao exportar imagem. Detalhes no console.');
+      exportContainer.classList.remove('export-mode');
     } finally {
       // Desativar modo de pré-visualização
       setIsPrintPreview(false);
