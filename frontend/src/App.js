@@ -356,17 +356,17 @@ function App() {
                 {renderField('Receita Bruta Total Prevista', 'receitaBrutaPrevista', 'currency')}
                 {renderField('Resultado Operacional Agropecuário Obtido', 'resultadoObtido', 'currency')}
                 {renderField('Resultado Operacional Agropecuário Previsto', 'resultadoPrevisto', 'currency')}
+                {renderField('Garantias', 'garantias')}
               </CardContent>
             </Card>
 
-            {/* Column 3 - Mixed */}
+            {/* Column 3 - Purple/Mixed */}
             <Card className="column-card column-mixed">
               <CardContent className="card-content">
                 {renderField('Pecuária: Quantidade de animais compatível com área?', 'pecuariaCompativel', 'select', {
                   items: ['Sim', 'Não', 'Não se aplica']
                 })}
                 {renderField('Justificativa Pecuária', 'justificativaPecuaria', 'textarea')}
-                {renderField('Garantias', 'garantias')}
                 <div className="field-group">
                   <Label className="field-label">Share BB (%)</Label>
                   <div className="share-bb-value" title="Calculado automaticamente">
@@ -375,23 +375,9 @@ function App() {
                 </div>
                 {renderField('Recursos Líquidos', 'recursosLiquidos', 'currency')}
                 {renderField('Patrimônio Total', 'patrimonioTotal', 'currency')}
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="columns-grid columns-grid-bottom">
-            {/* Bottom Column 1 - White */}
-            <Card className="column-card column-white">
-              <CardContent className="card-content">
                 {renderField('Endividamento no SFN', 'endividamentoSFN', 'currency')}
                 {renderField('Endividamento no BB', 'endividamentoBB', 'currency')}
                 {renderField('Inad Agro Agência (rel 5398)', 'inadAgroAgencia', 'currency')}
-              </CardContent>
-            </Card>
-
-            {/* Bottom Column 2 - White */}
-            <Card className="column-card column-white">
-              <CardContent className="card-content">
                 {renderField('Proposta Customizada', 'propostaCustomizada', 'select', {
                   items: ['Sim', 'Não', 'Não se aplica']
                 })}
