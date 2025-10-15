@@ -153,7 +153,7 @@ function App() {
       // Aguardar mais um pouco para garantir renderização
       await new Promise(resolve => setTimeout(resolve, 500));
       
-      // Configurações otimizadas do html2canvas
+      // Configurações otimizadas do html2canvas para MODO PAISAGEM
       const canvas = await html2canvas(exportContainer, {
         scale: 2,
         backgroundColor: '#ffffff',
@@ -162,8 +162,8 @@ function App() {
         allowTaint: false,
         foreignObjectRendering: false,
         imageTimeout: 0,
-        windowWidth: 2000,
-        windowHeight: exportContainer.scrollHeight + 100,
+        windowWidth: 2800,
+        windowHeight: 1600,
         onclone: (clonedDoc) => {
           console.log('Clone criado, processando estilos...');
           
