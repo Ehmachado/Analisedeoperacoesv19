@@ -145,7 +145,7 @@ function App() {
     }
 
     try {
-      console.log('Iniciando exportação PNG 4:3 harmônica...');
+      console.log('Iniciando exportação PNG A4...');
       
       // Adicionar classe de exportação para estilos especiais
       exportContainer.classList.add('export-mode');
@@ -156,93 +156,100 @@ function App() {
       // Aguardar renderização completa
       await new Promise(resolve => setTimeout(resolve, 800));
       
-      // Capturar em formato 4:3 de alta qualidade (2048x1536)
+      // Capturar em formato A4 (1240x1754 com scale 2 = 2480x3508px @ 300dpi)
       const canvas = await html2canvas(exportContainer, {
-        scale: 2.5,
-        backgroundColor: '#0a1929',
+        scale: 2,
+        backgroundColor: '#f0f4f8',
         logging: false,
         useCORS: true,
         allowTaint: false,
         foreignObjectRendering: false,
         imageTimeout: 0,
-        width: 2048,
-        height: 1536,
-        windowWidth: 2048,
-        windowHeight: 1536,
+        width: 1240,
+        height: 1754,
+        windowWidth: 1240,
+        windowHeight: 1754,
         scrollX: 0,
         scrollY: 0,
         onclone: (clonedDoc) => {
-          console.log('Aplicando estilos de exportação harmônica...');
+          console.log('Aplicando estilos A4 de exportação...');
           
           const clonedContainer = clonedDoc.getElementById('export-container');
           if (clonedContainer) {
-            // Aplicar estilos para exportação bonita
-            clonedContainer.style.width = '2048px';
-            clonedContainer.style.height = '1536px';
+            // Aplicar estilos para exportação A4
+            clonedContainer.style.width = '1240px';
+            clonedContainer.style.height = '1754px';
             clonedContainer.style.overflow = 'hidden';
-            clonedContainer.style.background = 'linear-gradient(135deg, #0a1929 0%, #1a3a5c 50%, #2a56c6 100%)';
+            clonedContainer.style.background = 'linear-gradient(135deg, #e3f2fd 0%, #f0f4f8 50%, #e8eaf6 100%)';
+            clonedContainer.style.padding = '40px';
+            clonedContainer.style.boxSizing = 'border-box';
             
             // Esconder os botões de ação
             const buttons = clonedContainer.querySelector('.header-actions');
             if (buttons) buttons.style.display = 'none';
             
-            // Ajustar o header para a exportação
+            // Ajustar o header
             const header = clonedContainer.querySelector('.app-header');
             if (header) {
               header.style.padding = '1.5rem 2rem';
-              header.style.background = 'linear-gradient(135deg, #003399 0%, #0047b3 50%, #2a56c6 100%)';
-              header.style.borderBottom = '3px solid #ffcc00';
+              header.style.marginBottom = '1.5rem';
+              header.style.borderRadius = '12px';
             }
             
             const title = clonedContainer.querySelector('.app-title');
             if (title) {
-              title.style.fontSize = '2.5rem';
-              title.style.marginBottom = '0.5rem';
+              title.style.fontSize = '2rem';
             }
             
             const subtitle = clonedContainer.querySelector('.app-subtitle');
             if (subtitle) {
-              subtitle.style.fontSize = '1rem';
+              subtitle.style.fontSize = '0.9rem';
             }
             
             // Ajustar o conteúdo principal
             const mainContent = clonedContainer.querySelector('.main-content');
             if (mainContent) {
-              mainContent.style.padding = '2rem';
+              mainContent.style.padding = '0';
               mainContent.style.maxWidth = '100%';
             }
             
-            // Ajustar as colunas para melhor aproveitamento do espaço 4:3
-            const columnsGrid = clonedContainer.querySelector('.columns-grid');
-            if (columnsGrid) {
-              columnsGrid.style.gap = '1.5rem';
+            // Ajustar a grid de blocos
+            const blocksGrid = clonedContainer.querySelector('.blocks-grid');
+            if (blocksGrid) {
+              blocksGrid.style.gap = '1.5rem';
             }
             
-            // Ajustar campos para melhor legibilidade na exportação
+            // Ajustar títulos dos blocos
+            const blockTitles = clonedContainer.querySelectorAll('.block-title');
+            blockTitles.forEach(title => {
+              title.style.fontSize = '1rem';
+              title.style.marginBottom = '1rem';
+            });
+            
+            // Ajustar campos
             const fieldLabels = clonedContainer.querySelectorAll('.field-label');
             fieldLabels.forEach(label => {
-              label.style.fontSize = '0.85rem';
-              label.style.fontWeight = '700';
+              label.style.fontSize = '0.75rem';
             });
             
             const printValues = clonedContainer.querySelectorAll('.print-value');
             printValues.forEach(value => {
-              value.style.fontSize = '1.1rem';
-              value.style.padding = '0.75rem';
-              value.style.minHeight = '45px';
+              value.style.fontSize = '0.95rem';
+              value.style.padding = '0.6rem';
+              value.style.minHeight = '38px';
             });
             
-            // Ajustar Share BB para destaque
+            // Ajustar Share BB
             const shareBB = clonedContainer.querySelector('.share-bb-value');
             if (shareBB) {
-              shareBB.style.fontSize = '2rem';
-              shareBB.style.padding = '1rem';
+              shareBB.style.fontSize = '1.5rem';
+              shareBB.style.padding = '0.8rem';
             }
           }
         }
       });
 
-      console.log('Canvas gerado com sucesso!');
+      console.log('Canvas A4 gerado com sucesso!');
       
       // Remover classe de exportação
       exportContainer.classList.remove('export-mode');
@@ -253,7 +260,7 @@ function App() {
       link.href = canvas.toDataURL('image/png', 0.95);
       link.click();
       
-      console.log('Exportação concluída!');
+      console.log('Exportação A4 concluída!');
       
     } catch (error) {
       console.error('Erro ao exportar:', error);
