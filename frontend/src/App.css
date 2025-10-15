@@ -110,6 +110,13 @@ body {
 
 .columns-grid {
   display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.columns-grid-bottom {
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
