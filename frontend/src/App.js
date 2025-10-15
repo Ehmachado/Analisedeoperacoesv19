@@ -153,17 +153,17 @@ function App() {
       // Aguardar mais um pouco para garantir renderização
       await new Promise(resolve => setTimeout(resolve, 800));
       
-      // Configurações para MODO PAISAGEM OTIMIZADO (tela cheia)
+      // Configurações para MODO PAISAGEM AJUSTADO (cabe na tela)
       const canvas = await html2canvas(exportContainer, {
-        scale: 2.5,
+        scale: 2,
         backgroundColor: '#ffffff',
         logging: false,
         useCORS: true,
         allowTaint: false,
         foreignObjectRendering: false,
         imageTimeout: 0,
-        windowWidth: 3840,
-        windowHeight: 2160,
+        windowWidth: 1920,
+        windowHeight: 1080,
         onclone: (clonedDoc) => {
           console.log('Aplicando estilos no clone para paisagem...');
           
