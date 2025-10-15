@@ -26,12 +26,12 @@ body {
 
 .app-header {
   background: linear-gradient(135deg, #003399 0%, #0047b3 50%, #2a56c6 100%);
-  padding: 2.5rem 2rem 2rem;
+  padding: 1.5rem 1.5rem 1rem;
   box-shadow: 0 20px 60px rgba(0, 51, 153, 0.5), 0 0 100px rgba(255, 204, 0, 0.2);
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 4px solid #ffcc00;
+  border-bottom: 3px solid #ffcc00;
   backdrop-filter: blur(20px);
   position: relative;
   overflow: hidden;
@@ -51,24 +51,24 @@ body {
 
 .header-content {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .app-title {
-  font-size: 3.5rem;
+  font-size: 2.8rem;
   font-weight: 800;
   background: linear-gradient(135deg, #ffcc00 0%, #ffe680 50%, #ffffff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   letter-spacing: 2px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
   text-shadow: 0 0 80px rgba(255, 204, 0, 0.5);
   filter: drop-shadow(0 4px 20px rgba(255, 204, 0, 0.4));
 }
 
 .app-subtitle {
-  font-size: 1.166rem;
+  font-size: 0.95rem;
   color: #ffe680;
   font-weight: 500;
   letter-spacing: 0.5px;
