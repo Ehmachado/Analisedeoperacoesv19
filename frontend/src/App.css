@@ -277,9 +277,12 @@ body {
   box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
 }
 
-/* Export mode - maintain layout, hide buttons */
+/* Export mode - beautiful and harmonic 4:3 layout */
 .export-mode {
-  background: #ffffff !important;
+  background: linear-gradient(135deg, #0a1929 0%, #1a3a5c 50%, #2a56c6 100%) !important;
+  width: 2048px !important;
+  height: 1536px !important;
+  overflow: hidden !important;
 }
 
 .export-mode .header-actions {
@@ -288,36 +291,36 @@ body {
 
 .export-mode .app-header {
   position: relative !important;
-  padding: 2rem !important;
+  padding: 1.5rem 2rem !important;
   background: linear-gradient(135deg, #003399 0%, #0047b3 50%, #2a56c6 100%) !important;
-  border-bottom: 4px solid #ffcc00 !important;
-}
-
-.export-mode .app-header::before {
-  display: none !important;
+  border-bottom: 3px solid #ffcc00 !important;
+  box-shadow: 0 4px 20px rgba(0, 51, 153, 0.4) !important;
 }
 
 .export-mode .app-title {
-  font-size: 2.45rem !important;
+  font-size: 2.5rem !important;
   background: linear-gradient(135deg, #ffcc00 0%, #ffe680 50%, #ffffff 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
+  margin-bottom: 0.5rem !important;
 }
 
 .export-mode .app-subtitle {
-  font-size: 0.882rem !important;
+  font-size: 1rem !important;
   color: #ffe680 !important;
 }
 
 .export-mode .main-content {
   padding: 2rem !important;
-  background: #ffffff !important;
+  max-width: 100% !important;
+  background: transparent !important;
 }
 
 .export-mode .fixed-fields {
-  background: rgba(255, 255, 255, 0.95) !important;
-  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 1rem 0 !important;
 }
 
 .export-mode .columns-grid {
@@ -330,51 +333,55 @@ body {
 }
 
 .export-mode .field-label {
-  font-size: 0.708rem !important;
+  font-size: 0.85rem !important;
   color: #1a202c !important;
   text-transform: uppercase !important;
   font-weight: 700 !important;
 }
 
 .export-mode .print-value {
-  font-size: 0.882rem !important;
-  padding: 0.735rem !important;
+  font-size: 1.1rem !important;
+  padding: 0.75rem !important;
   color: #1a202c !important;
-  background: rgba(255, 255, 255, 0.95) !important;
+  background: rgba(255, 255, 255, 0.98) !important;
   border: 2px solid rgba(226, 232, 240, 0.6) !important;
   word-wrap: break-word !important;
   word-break: break-word !important;
   overflow-wrap: break-word !important;
   white-space: normal !important;
   max-width: 100% !important;
-  min-height: 40px !important;
+  min-height: 45px !important;
   line-height: 1.4 !important;
 }
 
 .export-mode .share-bb-value {
-  font-size: 1.715rem !important;
-  padding: 0.98rem !important;
+  font-size: 2rem !important;
+  padding: 1rem !important;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
-  background-color: white !important;
+  background-color: rgba(255, 255, 255, 0.98) !important;
+}
+
+.export-mode .column-card {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 16px !important;
 }
 
 .export-mode .column-yellow {
-  background: rgba(251, 191, 36, 0.9) !important;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.95) 0%, rgba(252, 211, 77, 0.95) 100%) !important;
+  border: 1px solid rgba(251, 191, 36, 0.7) !important;
 }
 
 .export-mode .column-blue {
-  background: rgba(96, 165, 250, 0.9) !important;
-}
-
-.export-mode .column-white {
-  background: rgba(255, 255, 255, 0.95) !important;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.95) 0%, rgba(147, 197, 253, 0.95) 100%) !important;
+  border: 1px solid rgba(96, 165, 250, 0.7) !important;
 }
 
 .export-mode .column-mixed {
-  background: rgba(196, 181, 253, 0.9) !important;
+  background: linear-gradient(135deg, rgba(196, 181, 253, 0.95) 0%, rgba(221, 214, 254, 0.95) 100%) !important;
+  border: 1px solid rgba(196, 181, 253, 0.7) !important;
 }
 
 /* Responsive design */
