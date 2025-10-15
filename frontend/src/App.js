@@ -137,22 +137,45 @@ function App() {
     // Add export class for styling
     exportContainer.classList.add('export-mode');
     
+    // Wait for fonts and styles to load
+    await document.fonts.ready;
+    
     try {
+      // Wait a bit for rendering
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
       const canvas = await html2canvas(exportContainer, {
         scale: 2,
         backgroundColor: '#ffffff',
         logging: false,
         useCORS: true,
-        allowTaint: true,
+        allowTaint: false,
         foreignObjectRendering: false,
         imageTimeout: 0,
-        removeContainer: false
+        removeContainer: false,
+        windowWidth: exportContainer.scrollWidth,
+        windowHeight: exportContainer.scrollHeight,
+        onclone: (clonedDoc) => {
+          const clonedContainer = clonedDoc.getElementById('export-container');
+          if (clonedContainer) {
+            clonedContainer.style.background = '#ffffff';
+            clonedContainer.style.padding = '20px';
+            // Ensure all text is visible
+            const allText = clonedContainer.querySelectorAll('*');
+            allText.forEach(el => {
+              const styles = window.getComputedStyle(el);
+              el.style.fontFamily = styles.fontFamily;
+              el.style.fontSize = styles.fontSize;
+              el.style.color = styles.color;
+            });
+          }
+        }
       });
 
-      // Compress the image
+      // Convert and download
       const link = document.createElement('a');
       link.download = `super-barreiras-${Date.now()}.png`;
-      link.href = canvas.toDataURL('image/png', 0.9);
+      link.href = canvas.toDataURL('image/png', 1.0);
       link.click();
     } catch (error) {
       console.error('Erro ao exportar:', error);
