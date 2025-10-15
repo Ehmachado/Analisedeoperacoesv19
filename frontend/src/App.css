@@ -307,7 +307,7 @@ body {
 }
 
 .export-mode .app-title {
-  font-size: 3rem !important;
+  font-size: 5rem !important;
   background: linear-gradient(135deg, #ffcc00 0%, #ffe680 50%, #ffffff 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
@@ -315,7 +315,7 @@ body {
 }
 
 .export-mode .app-subtitle {
-  font-size: 1.2rem !important;
+  font-size: 1.8rem !important;
   color: #ffe680 !important;
 }
 
@@ -339,15 +339,15 @@ body {
 }
 
 .export-mode .field-label {
-  font-size: 0.85rem !important;
+  font-size: 1.445rem !important;
   color: #1a202c !important;
   text-transform: uppercase !important;
   font-weight: 700 !important;
 }
 
 .export-mode .print-value {
-  font-size: 1.1rem !important;
-  padding: 0.9rem !important;
+  font-size: 1.8rem !important;
+  padding: 1.5rem !important;
   color: #1a202c !important;
   background: rgba(255, 255, 255, 0.95) !important;
   border: 2px solid rgba(226, 232, 240, 0.6) !important;
@@ -356,11 +356,13 @@ body {
   overflow-wrap: break-word !important;
   white-space: normal !important;
   max-width: 100% !important;
+  min-height: 80px !important;
+  line-height: 1.4 !important;
 }
 
 .export-mode .share-bb-value {
-  font-size: 2rem !important;
-  padding: 1.2rem !important;
+  font-size: 3.5rem !important;
+  padding: 2rem !important;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
