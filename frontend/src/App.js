@@ -207,6 +207,7 @@ function App() {
             onChange={(e) => handleChange(field, e.target.value)}
             className="field-input"
             rows={2}
+            data-field={field}
           />
         </div>
       );
@@ -217,7 +218,7 @@ function App() {
         <div className="field-group">
           <Label htmlFor={field} className="field-label">{label}</Label>
           <Select value={value} onValueChange={(val) => handleChange(field, val)}>
-            <SelectTrigger id={field} className="field-input">
+            <SelectTrigger id={field} className="field-input" data-field={field}>
               <SelectValue placeholder="Selecione..." />
             </SelectTrigger>
             <SelectContent>
@@ -226,6 +227,7 @@ function App() {
               ))}
             </SelectContent>
           </Select>
+          <input type="hidden" className="select-value-export" data-field={field} value={value || 'Selecione...'} />
         </div>
       );
     }
@@ -240,6 +242,7 @@ function App() {
             onChange={(e) => handleCurrencyChange(field, e.target.value)}
             className="field-input"
             placeholder="R$ 0,00"
+            data-field={field}
           />
         </div>
       );
@@ -255,6 +258,7 @@ function App() {
             value={value}
             onChange={(e) => handleChange(field, e.target.value)}
             className="field-input"
+            data-field={field}
           />
         </div>
       );
@@ -269,6 +273,7 @@ function App() {
           onChange={(e) => handleChange(field, e.target.value)}
           className="field-input"
           placeholder={label}
+          data-field={field}
         />
       </div>
     );
