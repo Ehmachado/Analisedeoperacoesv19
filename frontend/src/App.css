@@ -458,19 +458,19 @@ body {
 
 /* Responsive design */
 @media (max-width: 1600px) {
-  .columns-grid {
+  .blocks-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 1400px) {
-  .columns-grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 1200px) {
+  .blocks-grid {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 900px) {
-  .columns-grid {
+  .blocks-grid {
     grid-template-columns: 1fr;
   }
   
@@ -489,6 +489,18 @@ body {
   .action-button {
     font-size: 0.6rem;
     padding: 0.3rem 0.6rem;
+  }
+  
+  .block-title {
+    font-size: 0.95rem;
+  }
+  
+  .field-label {
+    font-size: 0.9rem;
+  }
+  
+  .field-input, .print-value {
+    font-size: 1.1rem;
   }
 }
 
