@@ -389,47 +389,41 @@ body {
   .columns-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
-  .columns-grid-bottom {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media (max-width: 1400px) {
-  .columns-grid,
-  .columns-grid-bottom {
+  .columns-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 900px) {
-  .columns-grid,
-  .columns-grid-bottom {
+  .columns-grid {
     grid-template-columns: 1fr;
   }
   
   .app-title {
-    font-size: 2rem;
-  }
-  
-  .app-subtitle {
     font-size: 1rem;
   }
   
+  .app-subtitle {
+    font-size: 0.55rem;
+  }
+  
   .main-content {
-    padding: 1.5rem 1rem;
+    padding: 1rem 0.8rem;
   }
   
   .action-button {
-    font-size: 0.9rem;
-    padding: 0.6rem 1.2rem;
+    font-size: 0.6rem;
+    padding: 0.3rem 0.6rem;
   }
 }
 
 @media (max-width: 600px) {
   .app-title {
-    font-size: 1.5rem;
-    letter-spacing: 1px;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
   }
   
   .header-actions {
