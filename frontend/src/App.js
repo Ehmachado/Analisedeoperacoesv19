@@ -135,7 +135,7 @@ function App() {
     setIsPrintPreview(true);
     
     // Aguardar React atualizar o DOM
-    await new Promise(resolve => setTimeout(resolve, 100));
+    await new Promise(resolve => setTimeout(resolve, 200));
     
     const exportContainer = document.getElementById('export-container');
     if (!exportContainer) {
@@ -157,118 +157,116 @@ function App() {
       const canvas = await html2canvas(exportContainer, {
         scale: 2,
         backgroundColor: '#ffffff',
-        logging: true,
+        logging: false,
         useCORS: true,
         allowTaint: false,
         foreignObjectRendering: false,
         imageTimeout: 0,
-        windowWidth: 1800,
-        windowHeight: exportContainer.scrollHeight,
+        windowWidth: 2000,
+        windowHeight: exportContainer.scrollHeight + 100,
         onclone: (clonedDoc) => {
-          console.log('Clone criado, processando...');
+          console.log('Clone criado, processando estilos...');
           
           const clonedContainer = clonedDoc.getElementById('export-container');
           if (clonedContainer) {
             // Garantir background branco
             clonedContainer.style.backgroundColor = '#ffffff';
-            clonedContainer.style.padding = '20px';
+            clonedContainer.style.padding = '30px';
             
             // Esconder botões no clone
             const buttons = clonedContainer.querySelector('.header-actions');
             if (buttons) buttons.style.display = 'none';
             
-            // Garantir que todos os textos sejam visíveis
-            const allElements = clonedContainer.querySelectorAll('*');
-            allElements.forEach(el => {
-              // Forçar visibilidade
-              if (el.style.display === 'none' && !el.classList.contains('header-actions')) {
-                el.style.display = 'block';
-              }
-              
-              // Garantir que textos tenham cor
-              const computedStyle = window.getComputedStyle(el);
-              if (computedStyle.color === 'rgba(0, 0, 0, 0)' || computedStyle.color === 'transparent') {
-                el.style.color = '#0c1424';
-              }
-              
-              // Remover transforms que podem causar problemas
-              el.style.transform = 'none';
-            });
+            // CABEÇALHO - Cores BB
+            const header = clonedContainer.querySelector('.app-header');
+            if (header) {
+              header.style.background = 'linear-gradient(135deg, #003399 0%, #0047b3 50%, #2a56c6 100%)';
+              header.style.borderBottom = '4px solid #ffcc00';
+              header.style.padding = '2rem';
+            }
             
-            // Garantir que os valores dos campos print-value sejam visíveis
-            const printValues = clonedContainer.querySelectorAll('.print-value');
-            printValues.forEach(pv => {
-              pv.style.backgroundColor = '#ffffff';
-              pv.style.color = '#0c1424';
-              pv.style.border = '2px solid #e5e7eb';
-              pv.style.padding = '0.7rem';
-              pv.style.borderRadius = '12px';
-              pv.style.minHeight = '50px';
-              pv.style.display = 'flex';
-              pv.style.alignItems = 'center';
-              pv.style.fontSize = '1.15rem';
-              pv.style.fontWeight = '500';
-            });
+            // TÍTULO - Gradiente Dourado BB
+            const title = clonedContainer.querySelector('.app-title');
+            if (title) {
+              title.style.fontSize = '5rem';
+              title.style.fontWeight = '800';
+              title.style.background = 'linear-gradient(135deg, #ffcc00 0%, #ffe680 50%, #ffffff 100%)';
+              title.style.webkitBackgroundClip = 'text';
+              title.style.webkitTextFillColor = 'transparent';
+              title.style.backgroundClip = 'text';
+            }
             
-            // Garantir que labels sejam visíveis
+            // SUBTÍTULO
+            const subtitle = clonedContainer.querySelector('.app-subtitle');
+            if (subtitle) {
+              subtitle.style.fontSize = '1.8rem';
+              subtitle.style.color = '#ffe680';
+            }
+            
+            // LABELS - Tamanho aumentado
             const labels = clonedContainer.querySelectorAll('.field-label');
             labels.forEach(label => {
-              label.style.color = '#003399';
-              label.style.fontSize = '1.1rem';
-              label.style.fontWeight = '600';
+              label.style.fontSize = '1.445rem';
+              label.style.color = '#1a202c';
+              label.style.fontWeight = '700';
+              label.style.textTransform = 'uppercase';
             });
             
-            // Garantir cores de fundo dos cards
+            // VALORES DOS CAMPOS - Tamanho aumentado e quebra de texto
+            const printValues = clonedContainer.querySelectorAll('.print-value');
+            printValues.forEach(pv => {
+              pv.style.fontSize = '1.8rem';
+              pv.style.fontWeight = '500';
+              pv.style.color = '#1a202c';
+              pv.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+              pv.style.border = '2px solid rgba(226, 232, 240, 0.6)';
+              pv.style.padding = '1.5rem';
+              pv.style.borderRadius = '16px';
+              pv.style.minHeight = '80px';
+              pv.style.display = 'flex';
+              pv.style.alignItems = 'center';
+              pv.style.wordWrap = 'break-word';
+              pv.style.wordBreak = 'break-word';
+              pv.style.overflowWrap = 'break-word';
+              pv.style.whiteSpace = 'normal';
+              pv.style.lineHeight = '1.4';
+              pv.style.maxWidth = '100%';
+            });
+            
+            // SHARE BB - Tamanho aumentado
+            const shareBB = clonedContainer.querySelector('.share-bb-value');
+            if (shareBB) {
+              shareBB.style.fontSize = '3.5rem';
+              shareBB.style.fontWeight = '800';
+              shareBB.style.padding = '2rem';
+              shareBB.style.backgroundColor = 'white';
+              shareBB.style.borderRadius = '20px';
+              shareBB.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+              shareBB.style.webkitBackgroundClip = 'text';
+              shareBB.style.webkitTextFillColor = 'transparent';
+              shareBB.style.backgroundClip = 'text';
+            }
+            
+            // CARDS - Cores corretas
             const yellowCards = clonedContainer.querySelectorAll('.column-yellow');
             yellowCards.forEach(card => {
-              card.style.backgroundColor = '#ffe680';
+              card.style.background = 'rgba(251, 191, 36, 0.9)';
             });
             
             const blueCards = clonedContainer.querySelectorAll('.column-blue');
             blueCards.forEach(card => {
-              card.style.backgroundColor = '#e6f0ff';
+              card.style.background = 'rgba(96, 165, 250, 0.9)';
             });
             
             const whiteCards = clonedContainer.querySelectorAll('.column-white');
             whiteCards.forEach(card => {
-              card.style.backgroundColor = '#ffffff';
+              card.style.background = 'rgba(255, 255, 255, 0.95)';
             });
             
             const mixedCards = clonedContainer.querySelectorAll('.column-mixed');
             mixedCards.forEach(card => {
-              card.style.backgroundColor = '#f0f7ff';
+              card.style.background = 'rgba(196, 181, 253, 0.9)';
             });
-            
-            // Garantir cabeçalho visível
-            const header = clonedContainer.querySelector('.app-header');
-            if (header) {
-              header.style.background = 'linear-gradient(135deg, #ffcc00 0%, #ffe680 100%)';
-              header.style.padding = '1.5rem';
-            }
-            
-            const title = clonedContainer.querySelector('.app-title');
-            if (title) {
-              title.style.color = '#003399';
-              title.style.fontSize = '2.8rem';
-              title.style.fontWeight = '700';
-            }
-            
-            const subtitle = clonedContainer.querySelector('.app-subtitle');
-            if (subtitle) {
-              subtitle.style.color = '#2a56c6';
-              subtitle.style.fontSize = '1.3rem';
-            }
-            
-            // Garantir Share BB visível
-            const shareBB = clonedContainer.querySelector('.share-bb-value');
-            if (shareBB) {
-              shareBB.style.backgroundColor = '#ffcc00';
-              shareBB.style.color = '#003399';
-              shareBB.style.fontSize = '1.6rem';
-              shareBB.style.fontWeight = '700';
-              shareBB.style.padding = '1rem';
-              shareBB.style.borderRadius = '16px';
-            }
           }
         }
       });
